@@ -1,17 +1,12 @@
 import {Component} from 'angular2/core';
 import {JobDetailComponent} from './job-detail.component';
 import {Job} from './job';
-
-let JOBS: Job[] = [
-  { "id": 11, "name": "Back End" },
-  { "id": 12, "name": "Dev Ops" },
-  { "id": 13, "name": "Data Scientist" },
-  { "id": 14, "name": "Front End" },
-  { "id": 15, "name": "UX designer" }
-];
+import {JobService} from './job.service';
+import {OnInit} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
+    providers: [JobService],
     template: `
       <h1>{{title}}</h1>
       <ul class="jobs">
@@ -74,11 +69,20 @@ let JOBS: Job[] = [
     directives: [JobDetailComponent]
 
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public title = 'List of jobs';
-  public jobs = JOBS;
-
+  public jobs: Job[];
   selectedJob: Job;
+
+  constructor(private _jobService: JobService) { }
+  ngOnInit() {
+    this.getJobs();
+  }
+
+  getJobs() {
+    this._jobService.getJobs().then((jobs: Job[]) => this.jobs = jobs);
+  }
+
   onSelect(job: Job) { this.selectedJob = job; }
 
 }
