@@ -1,8 +1,8 @@
 import { Component }       from 'angular2/core';
-import { JobService }     from './job.service';
-import { JobsComponent } from './jobs.component';
-import { JobDetailComponent } from './job-detail.component';
-import { DashboardComponent } from './dashboard.components';
+import { JobService }     from './services/job.service';
+import { JobsComponent } from './jobs/jobs.component';
+import { JobDetailComponent } from './jobs/detail/job-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.components';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import {Injectable} from 'angular2/core';
-import {JOBS} from './mock-jobs';
-import {Job} from './job';
+import {JOBS} from '../mock-jobs';
+import {Job} from '../job';
 
 @Injectable()
 export class JobService {

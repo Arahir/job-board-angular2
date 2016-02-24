@@ -1,13 +1,13 @@
 import {Component, OnInit} from 'angular2/core';
-import {Job} from './job';
+import {Job} from '../../job';
 import {RouteParams} from 'angular2/router';
-import { JobService } from './job.service';
+import { JobService } from '../../services/job.service';
 
 @Component({
   selector: 'my-job-detail',
   inputs: ['job'],
-  styleUrls: ['app/job-detail.component.css'],
-  templateUrl: 'app/job-detail.component.html'
+  styleUrls: ['app/jobs/detail/job-detail.component.css'],
+  templateUrl: 'app/jobs/detail/job-detail.component.html'
 })
 export class JobDetailComponent implements OnInit{
   job: Job;

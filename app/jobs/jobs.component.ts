@@ -1,14 +1,14 @@
 import {Component} from 'angular2/core';
-import {JobDetailComponent} from './job-detail.component';
-import {Job} from './job';
-import {JobService} from './job.service';
+import {JobDetailComponent} from './detail/job-detail.component';
+import {Job} from '../job';
+import {JobService} from '../services/job.service';
 import {OnInit} from 'angular2/core';
 import { Router } from 'angular2/router';
 
 @Component({
     selector: 'my-jobs',
-    templateUrl: 'app/jobs.component.html',
-    styleUrls: ['app/jobs.component.css'],
+    templateUrl: 'app/jobs/jobs.component.html',
+    styleUrls: ['app/jobs/jobs.component.css'],
     directives: [JobDetailComponent]
 
 })
