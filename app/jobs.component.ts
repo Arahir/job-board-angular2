@@ -3,6 +3,7 @@ import {JobDetailComponent} from './job-detail.component';
 import {Job} from './job';
 import {JobService} from './job.service';
 import {OnInit} from 'angular2/core';
+import { Router } from 'angular2/router';
 
 @Component({
     selector: 'my-jobs',
@@ -10,12 +11,10 @@ import {OnInit} from 'angular2/core';
       <h1>{{title}}</h1>
       <ul class="jobs">
         <li *ngFor="#job of jobs"
-          [class.selected]="job === selectedJob"
-          (click)="onSelect(job)" >
+          (click)="gotoDetail(job)" >
           <span class="badge">{{job.id}}</span> {{job.name}}
         </li>
       </ul>
-      <my-job-detail [job]="selectedJob"></my-job-detail>
     `,
     styles:[`
       .selected {
@@ -71,9 +70,10 @@ import {OnInit} from 'angular2/core';
 export class JobsComponent implements OnInit{
   public title = 'List of jobs';
   public jobs: Job[];
-  selectedJob: Job;
 
-  constructor(private _jobService: JobService) { }
+  constructor(
+    private _router: Router,
+    private _jobService: JobService) { }
   ngOnInit() {
     this.getJobs();
   }
@@ -82,6 +82,9 @@ export class JobsComponent implements OnInit{
     this._jobService.getJobs().then((jobs: Job[]) => this.jobs = jobs);
   }
 
-  onSelect(job: Job) { this.selectedJob = job; }
+  gotoDetail(job: Job) {
+    let link = ['JobDetail', { id: job.id }];
+    this._router.navigate(link);
+  }
 
 }

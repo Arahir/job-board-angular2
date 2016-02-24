@@ -7,4 +7,9 @@ export class JobService {
   getJobs(): Promise<Job[]> {
     return Promise.resolve(JOBS);
   }
+  getJob(id: number) {
+    return this.getJobs().then(
+      jobs => jobs.filter(job => job.id === id)[0]
+    );
+  }
 }

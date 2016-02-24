@@ -1,13 +1,14 @@
 import { Component }       from 'angular2/core';
 import { JobService }     from './job.service';
 import { JobsComponent } from './jobs.component';
+import { JobDetailComponent } from './job-detail.component';
 import { DashboardComponent } from './dashboard.components';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
+    <h1>Job Board</h1>
     <a [routerLink]="['Dashboard']">Dashboard</a>
     <a [routerLink]="['Jobs']">Jobs</a>
     <router-outlet></router-outlet>
@@ -30,7 +31,10 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
     name: 'Jobs',
     component: JobsComponent
   },
+  {
+  path: '/detail/:id',
+  name: 'JobDetail',
+  component: JobDetailComponent
+  },
 ])
-export class AppComponent {
-  title = 'Tour of Heroes';
-}
+export class AppComponent {}
