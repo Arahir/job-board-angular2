@@ -6,17 +6,8 @@ import { JobService } from './job.service';
 @Component({
   selector: 'my-job-detail',
   inputs: ['job'],
-  template: `
-    <div *ngIf="job">
-      <h2>{{job.name}} details!</h2>
-      <div><label>id: </label>{{job.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="job.name" placeholder="name"/>
-      </div>
-      <button (click)="goBack()">Back</button>
-    </div>
-  `
+  styleUrls: ['app/job-detail.component.css'],
+  templateUrl: 'app/job-detail.component.html'
 })
 export class JobDetailComponent implements OnInit{
   job: Job;

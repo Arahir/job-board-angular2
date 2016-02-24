@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+<ul class="jobs">
+  <li *ngFor="#job of jobs"
+    (click)="gotoDetail(job)" >
+    <span class="badge">{{job.id}}</span> {{job.name}}
+  </li>
+</ul>

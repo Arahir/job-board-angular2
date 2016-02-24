@@ -7,12 +7,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 
 @Component({
   selector: 'my-app',
-  template: `
-    <h1>Job Board</h1>
-    <a [routerLink]="['Dashboard']">Dashboard</a>
-    <a [routerLink]="['Jobs']">Jobs</a>
-    <router-outlet></router-outlet>
-  `,
+  styleUrls: ['app/app.component.css'],
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [
     ROUTER_PROVIDERS,
