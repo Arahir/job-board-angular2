@@ -1,9 +1,6 @@
 import {Component} from 'angular2/core';
-
-interface Job {
-  id: number;
-  name: string;
-}
+import {JobDetailComponent} from './job-detail.component';
+import {Job} from './job';
 
 let JOBS: Job[] = [
   { "id": 11, "name": "Back End" },
@@ -24,14 +21,7 @@ let JOBS: Job[] = [
           <span class="badge">{{job.id}}</span> {{job.name}}
         </li>
       </ul>
-      <div *ngIf="selectedJob">
-        <h2>{{selectedJob.name}} details!</h2>
-        <div><label>id: </label>{{selectedJob.id}}</div>
-        <div>
-          <label>name: </label>
-          <input [(ngModel)]="selectedJob.name" placeholder="name"/>
-        </div>
-      </div>
+      <my-job-detail [job]="selectedJob"></my-job-detail>
     `,
     styles:[`
       .selected {
@@ -80,7 +70,8 @@ let JOBS: Job[] = [
         margin-right: .8em;
         border-radius: 4px 0px 0px 4px;
       }
-    `]
+    `],
+    directives: [JobDetailComponent]
 
 })
 export class AppComponent {
